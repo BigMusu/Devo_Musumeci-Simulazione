@@ -1,16 +1,7 @@
 version: '3.3'
-services:
-  database:
-    image: "postgres"
-    env_file:
-      - ./env/database.env
-    volumes:
-      - postgres:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
-      # "porta host:porta container"
-    restart: unless-stopped
 
+services:
+  
   pgadmin:
     image: dpage/pgadmin4
     env_file:
@@ -20,16 +11,12 @@ services:
     ports:
       - "5050:80"
     restart: unless-stopped
-    depends_on:
-      - database
 
   backend:
     build: ./backend/
     ports:
       - "80:80"
     restart: unless-stopped
-    depends_on:
-      - database
 
 volumes:
   postgres:
