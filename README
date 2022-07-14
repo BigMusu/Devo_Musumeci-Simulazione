@@ -1,0 +1,27 @@
+# Compito 1 - Containerizzazione
+
+## Setup node environment
+
+1. `npm init -y` e `npm i express` ... nella cartella del file `.js` per creare il packet.json ed installare le dipendenze
+
+## Dockerfile
+
+2. Creare il Dockerfile come segue all'interno della directory del backend
+
+```dockerfile
+
+FROM node:latest
+
+WORKDIR /app
+
+COPY . .
+
+RUN npm install
+
+CMD ["npm", "start"]```
+
+3. Creare un dockerignore per ignorare la cartella node_modules durante il COPY
+
+## Docker compose
+
+4. 
